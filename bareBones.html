@@ -1,0 +1,129 @@
+<!--
+ Filename: bareBones.html						
+ Written by: Douglas Schurman					
+ Purpose: Add structure to BareBones
+ Date: 9 December 2021						
+-->
+
+<!--Tested in chrome, firefox, and edge-->
+<!DOCTYPE html>
+<html lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Barebone Barbells</title>
+  <link rel="stylesheet" href="theme/jquery-ui.css">
+  <link href="bareBones.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="bareBones.js"></script>
+  <script src="theme/jquery-ui.js"></script>
+  <script src="validation/dist/jquery.validate.js"></script>
+</head>
+
+<body>
+    <h1>Barebone Barbells</h1> 
+    <div style="display: flex; justify-content: right; margin-bottom: 30px;"><button id='openLogin'>Log In</button></div>
+    <div id='login' title="Add login information:">
+        <form id="loginForm">
+            <label for="email">Email</label><input type="email" id="email" name = "email"><br><br>
+            <label for="password">Password</label><input type="password" id="password" name = "password"><br>
+            <br><label for="tel">Telephone</label><input type="tel" id="tel" name = "tel"><br>
+            <br><div id="infoOut"></div>
+            <button type="button" id="loginSubmit">Submit</button>
+            <div id="loginInfo"> </div>
+        </form>
+    </div>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Home</a></li>
+            <li><a href="#tabs-2">Calculator</a></li>
+        </ul>
+        <div id="tabs-1">
+            <h3>Welcome!</h3>
+            <p>Barebone Barbells is here to give you free and easy information for fitness.<br>
+            Feel free to use any informatoin and tools we provide here.</p>
+            <h3>Devise a workout plan:</h3>
+            <form id="workoutForm">
+                <div>
+                    <div>Enter your name:</div>
+                    <input id="username" name="username" type='text' autofocus/>
+                </div>
+                <div style="margin-top: 30px;">
+                    <div>Enter your level:</div>
+                    <input id="level" name="level" title="type &quot;a&quot;" required>
+                </div>
+                <div id="radioset" style="margin-top: 30px;">
+                    <input type="radio" id="radio1" name="radio" value = "male"><label for="radio1">Male</label>
+                    <input type="radio" id="radio2" name="radio" value = "female"><label for="radio2">Female</label>
+                </div>
+                <div>
+                    <p>Date of workout: <input type="text" id="datepicker" name = "datepicker"></p>
+                </div>
+                <div>
+                    <label class = "checkboxLabel"><input type="checkbox" name="workouts" value="sit ups">Sit ups </label><br>
+                    <label class = "checkboxLabel"><input type="checkbox" name="workouts" value="push ups">Push ups </label><br>
+                    <label class = "checkboxLabel"><input type="checkbox" name="workouts" value="curls">Curls </label><br>
+                    <label class = "checkboxLabel"><input type="checkbox" name="workouts" value="bench press">Bench press </label><br>
+                    <label class = "checkboxLabel"><input type="checkbox" name="workouts" value="pushdowns">Push downs </label><br>
+                    <label class = "checkboxLabel"><input type="checkbox" name="workouts" value="dumbbell press">Dumbbell press </label><br>
+                    <label class = "checkboxLabel"><input type="checkbox" name="workouts" value="squats">Squats </label><br>
+                    <label class = "checkboxLabel"><input type="checkbox" name="workouts" value="deadlifts">Deadlifts </label><br>
+                </div>
+                <div style="margin-top: 30px;">
+                    <label for="horizontal-spinner" class="ui-controlgroup-label">Number of repetitions:</label>
+                    <input id="horizontal-spinner" class="ui-spinner-input" min='0' max='100' value='0' name='value' type="number">
+                </div>
+                <button type="button" id="submit">Submit</button>
+                <p id="workoutOut"> </p>
+                <div style="margin-top: 30px;"><input type='reset' onclick="$('#workoutOut').empty();"/></div>
+            </form> 
+
+        </div>
+        <div id="tabs-2">
+            <h3>Add calories:</h3>
+            <form name="calculator" >
+                <button type="button" onclick="document.getElementById('answer').innerHTML = document.getElementById('answer').innerHTML+'0'">0</button>
+                <br>
+                
+                <button type="button" onclick="document.getElementById('answer').innerHTML = document.getElementById('answer').innerHTML+'1'">1</button>
+                
+                <button type="button" onclick="document.getElementById('answer').innerHTML = document.getElementById('answer').innerHTML+'2'">2</button>
+                
+                <button type="button" onclick="document.getElementById('answer').innerHTML = document.getElementById('answer').innerHTML+'3'">3</button>
+                
+                <br>
+                 
+                <button type="button" onclick="document.getElementById('answer').innerHTML = document.getElementById('answer').innerHTML+'4'">4</button>
+                
+                 
+                <button type="button" onclick="document.getElementById('answer').innerHTML = document.getElementById('answer').innerHTML+'5'">5</button>
+                
+                 <button type="button" onclick="document.getElementById('answer').innerHTML = document.getElementById('answer').innerHTML+'6'">6</button>
+                
+                 <br>
+                
+                 <button type="button" onclick="document.getElementById('answer').innerHTML = document.getElementById('answer').innerHTML+'7'">7</button>
+                 
+                 <button type="button" onclick="document.getElementById('answer').innerHTML = document.getElementById('answer').innerHTML+'8'">8</button>
+                 
+                 <button type="button" onclick="document.getElementById('answer').innerHTML = document.getElementById('answer').innerHTML+'9'">9</button>
+                
+                 <br>
+                
+                <button type="button" onclick="document.getElementById('answer').innerHTML ='' ">Clear</button>
+                
+                <button  type="button" onclick="document.getElementById('answer').innerHTML =   document.getElementById('answer').innerHTML+'+'">+</button>
+                
+                <button  type="button" onclick="document.getElementById('answer').innerHTML =   document.getElementById('answer').innerHTML+'-'">-</button>
+                
+                <button  type="button" onclick="document.getElementById('answer').innerHTML =   document.getElementById('answer').innerHTML+'*'">*</button>
+                
+                <button  type="button" onclick="document.getElementById('answer').innerHTML =   document.getElementById('answer').innerHTML+'/'">/</button>
+                
+                <button type="button" id='equals'>=</button>
+                <br> 
+                <p>Answer:</p>
+                <p id="answer"></p>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
